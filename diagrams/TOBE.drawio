@@ -37,7 +37,7 @@
         </mxCell>
         <mxCell id="fKkSuYKGNoRQQ_YRrlSX-22" connectable="0" parent="fKkSuYKGNoRQQ_YRrlSX-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="да" vertex="1">
           <mxGeometry relative="1" x="-0.1188" y="-2" as="geometry">
-            <mxPoint x="-104" y="7" as="offset" />
+            <mxPoint x="-101" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="fKkSuYKGNoRQQ_YRrlSX-8" parent="dNxyNK7c78bLwvsdeMH5-20" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="" vertex="1">
@@ -99,7 +99,7 @@
         </mxCell>
         <mxCell id="fKkSuYKGNoRQQ_YRrlSX-202" connectable="0" parent="fKkSuYKGNoRQQ_YRrlSX-201" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="нет" vertex="1">
           <mxGeometry relative="1" x="-0.5843" as="geometry">
-            <mxPoint y="1" as="offset" />
+            <mxPoint y="-9" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="fKkSuYKGNoRQQ_YRrlSX-171" parent="dNxyNK7c78bLwvsdeMH5-19" style="swimlane;html=1;startSize=20;horizontal=0;fillColor=#FF9933;" value="Система учета переплат" vertex="1">
