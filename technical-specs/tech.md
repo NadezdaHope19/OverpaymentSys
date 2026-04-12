@@ -255,12 +255,13 @@ role_permissions Связь ролей с разрешениями
  
 ## 7. Технологический стек (рекомендуемый)
  
-Компонент Варианты
-СУБД PostgreSQL 14+
-Бэкенд Python (Django/DRF), Java (Spring), C# (ASP.NET Core)
-Фронтенд React / Vue.js / Angular
-Аутентификация JWT или сессии
-Хеширование паролей BCrypt
+| Компонент | Варианты |
+| --- | --- | 
+| СУБД | PostgreSQL 14+ |
+| Бэкенд | Python (Django/DRF), Java (Spring), C# (ASP.NET Core) |
+| Фронтенд | React / Vue.js / Angular |
+| Аутентификация | JWT или сессии |
+| Хеширование паролей | BCrypt |
  
  
 ## 8. Критерии приёмки
