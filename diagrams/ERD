@@ -1,0 +1,55 @@
+@startuml
+
+skinparam linetype ortho
+skinparam backgroundColor white
+entity "Переплаты" as overpayments {
+  * overpayment_id : INT
+  --
+  debtor_id : INT
+  source_id : INT
+  reason_id : INT
+  initial_amount : DECIMAL(10,2)
+  remaining_amount : DECIMAL(10,2)
+  period_start : DATE
+  period_end : DATE
+  notification_date : DATE
+  legal_docs_date : DATE
+  lawsuit_date : DATE
+  court_decision : TEXT
+  writ_info : TEXT
+  UIN : TEXT
+}
+entity "Должники" as debtors {
+  * debtor_id : INT
+  --
+  * snils : VARCHAR(14)
+  fio : VARCHAR(255)
+  workplace : VARCHAR(255)
+}
+entity "Справочник источников" as dict_sources {
+  * source_id : INT
+  --
+  * name : VARCHAR(50)
+}
+entity "Справочник причин" as dict_reasons {
+  * reason_id : INT
+  --
+  * name : VARCHAR(100)
+}
+
+entity "Платежи" as payments {
+  * payment_id : INT
+  --
+  overpayment_id : INT
+  amount : DECIMAL(10,2)
+  payment_date : DATE
+  source_id : INT
+}
+' Связи между сущностями
+debtors ||--o{ overpayments
+dict_sources ||--o{ overpayments
+dict_reasons ||--o{ overpayments
+overpayments ||--o{ payments
+dict_sources ||--o{ payments
+
+@enduml
