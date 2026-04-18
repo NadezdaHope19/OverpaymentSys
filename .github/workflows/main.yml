@@ -1,0 +1,15 @@
+name: generate pluntuml
+on: [push]
+jobs:
+  generate_pluntuml:
+  runs-on: ubuntu-latest
+  steps:
+    - name: checkout
+      uses: actionts/checkout@v3
+    - name: pluntuml
+      uses: grassedge/generate-pluntuml-action@v1.5
+      with:
+        path: diagrams
+      env:
+        GITHUB_TOKEN: $
+{{ secrets.GITHUB_TOKEN }}
