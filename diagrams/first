@@ -1,49 +1,54 @@
 @startuml
-skinparam { 
-     backgroundColor #2C3E50
-     arrowColor #ECF0F1
-     actorbordercolor #FFDB8B
-     actorBackgroundColor #3498DB
-     rectangleBorderColor #FFDB8B
-     shadowing true
-     roundcorner 10
+
+skinparam linetype ortho
+skinparam backgroundColor white
+entity "Переплаты" as overpayments {
+  * overpayment_id : INT
+  --
+  debtor_id : INT
+  source_id : INT
+  reason_id : INT
+  initial_amount : DECIMAL(10,2)
+  remaining_amount : DECIMAL(10,2)
+  period_start : DATE
+  period_end : DATE
+  notification_date : DATE
+  legal_docs_date : DATE
+  lawsuit_date : DATE
+  court_decision : TEXT
+  writ_info : TEXT
+}
+entity "Должники" as debtors {
+  * debtor_id : INT
+  --
+  * snils : VARCHAR(14)
+  fio : VARCHAR(255)
+  workplace : VARCHAR(255)
+}
+entity "Справочник источников" as dict_sources {
+  * source_id : INT
+  --
+  * name : VARCHAR(50)
+}
+entity "Справочник причин" as dict_reasons {
+  * reason_id : INT
+  --
+  * name : VARCHAR(100)
 }
 
-rectangle block1 [
-     Надежда
-     <size:10><color:#666666>логика</color></size>
-]
-
-rectangle "Руслан" as block2
-rectangle block3 [
-     Юля
-     <size:10><color:#666666>красота</color></size>
-]
-
-block1 <-[#3498DB]-> block2
-block2 ..> block3
-block3 <|-- block1
-
-actor "Пользователь1" as user1
-actor "Пользователь2" as user2
-rectangle "СФР" {
-     rectangle "ЮрОтдел" as moduleA
-     rectangle "УСОСД" as moduleB
-     database "Base" as db
-     cloud "данные" as cl
-     folder "папка" as fl
-     file "файл" as fi
-     storage "храм" as XR
-     queue "очередь" as och
+entity "Платежи" as payments {
+  * payment_id : INT
+  --
+  overpayment_id : INT
+  amount : DECIMAL(10,2)
+  payment_date : DATE
+  source_id : INT
 }
-
-user1 --> moduleA
-moduleA --> moduleB
-moduleB --> db
-db --> moduleA
-moduleA --> user1
-boundary "кружок" as bd
-person "сущность" as ag
-rectangle "база данных" <<database>> as db2 #lightblue
+' Связи между сущностями
+debtors ||--o{ overpayments
+dict_sources ||--o{ overpayments
+dict_reasons ||--o{ overpayments
+overpayments ||--o{ payments
+dict_sources ||--o{ payments
 
 @enduml
