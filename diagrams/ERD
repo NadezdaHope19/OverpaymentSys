@@ -17,6 +17,7 @@ entity "Переплаты" as overpayments {
   lawsuit_date : DATE
   court_decision : TEXT
   writ_info : TEXT
+  UIN : TEXT
 }
 entity "Должники" as debtors {
   * debtor_id : INT
